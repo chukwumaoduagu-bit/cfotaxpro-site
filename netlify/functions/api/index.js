@@ -1,5 +1,5 @@
 export const handler = async (event, context) => {
-  const path = event.path.replace('/.netlify/functions/api', '');
+  const path = event.path;
 
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -14,22 +14,22 @@ export const handler = async (event, context) => {
   try {
     let response;
     switch (path) {
-      case '/leads':
+      case '/api/leads':
         response = { leads: [] };
         break;
-      case '/system-status':
+      case '/api/system-status':
         response = { status: 'ok', timestamp: new Date().toISOString() };
         break;
-      case '/stats':
+      case '/api/stats':
         response = { stats: { total: 0, active: 0 } };
         break;
-      case '/config':
+      case '/api/config':
         response = { config: { siteName: 'CFO TAX PRO LLC' } };
         break;
-      case '/emails':
+      case '/api/emails':
         response = { emails: [] };
         break;
-      case '/autopilot':
+      case '/api/autopilot':
         response = { enabled: true, status: 'active' };
         break;
       default:
