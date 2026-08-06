@@ -15,22 +15,18 @@ export const handler = async (event, context) => {
     let response;
     switch (path) {
       case '/api/leads':
-        response = { leads: [] };
+        response = { 
+          leads: [
+            { id: 1, name: 'John Doe', company: 'ABC Corp', status: 'New' },
+            { id: 2, name: 'Jane Smith', company: 'XYZ Inc', status: 'Contacted' }
+          ] 
+        };
         break;
       case '/api/system-status':
         response = { status: 'ok', timestamp: new Date().toISOString() };
         break;
       case '/api/stats':
-        response = { stats: { total: 0, active: 0 } };
-        break;
-      case '/api/config':
-        response = { config: { siteName: 'CFO TAX PRO LLC' } };
-        break;
-      case '/api/emails':
-        response = { emails: [] };
-        break;
-      case '/api/autopilot':
-        response = { enabled: true, status: 'active' };
+        response = { stats: { total: 2, active: 1 } };
         break;
       default:
         response = { message: 'API endpoint', path };
