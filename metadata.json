@@ -1,0 +1,6 @@
+{
+  "name": "CFO TAX PRO - Smart Revenue Engine & AI Operations",
+  "description": "Enterprise-grade AI revenue engine, 24/7 lead capture chatbot, owner operations blueprint, and fractional CFO advisory system for CFO TAX PRO LLC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
