@@ -1,27 +1,18 @@
-// Netlify Function handler for all /api/* routes
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   const path = event.path.replace('/.netlify/functions/api', '');
 
-  // CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   };
 
-  // Handle preflight OPTIONS request
   if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 204,
-      headers,
-      body: '',
-    };
+    return { statusCode: 204, headers, body: '' };
   }
 
   try {
-    // Route handling
     let response;
-
     switch (path) {
       case '/leads':
         response = { leads: [] };
@@ -42,8 +33,7 @@ exports.handler = async (event, context) => {
         response = { enabled: true, status: 'active' };
         break;
       default:
-        // Pass through to your server.ts logic if needed
-        response = { message: 'API endpoint', path: path };
+        response = { message: 'API endpoint', path };
     }
 
     return {
